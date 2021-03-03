@@ -1,6 +1,4 @@
-# FundamentosNube
-Emilio Enrique Rivas Rubio
-15197809
+### Parcial 1 - Emilio Enrique Rivas Rubio ###
 
 docker compose de la carpeta web:
 
