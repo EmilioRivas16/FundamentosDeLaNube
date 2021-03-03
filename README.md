@@ -61,6 +61,13 @@ services:                                 -Se establecen los parametros del serv
       - ./conf:/etc/mysql/conf.d/         -Es el archivo que se genera cuando se inicia el contenedor
 
 
+Descripción general del contenedor:
+
+Tiene la utilidad de implemetar aplicaciones muy rapidamente
+Contiene el lenguaje PHP
+El servidor web que usa es Apache
+El gestor de base de datos que usa es mariaDB
+
 
 
 
