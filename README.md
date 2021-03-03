@@ -7,14 +7,23 @@ docker compose de la carpeta web:
 version: '3.1'                            -Se especifíca la versión en la cual se trabajará
                                           
 services:                                 -Se establecen los parametros del servicio al que se hara conexión
+
   measurementapp:                         -Apartado donde se establece la imagen y sus condiciones
+  
     image: webdevops/php-apache:7.4       -Se pone la imagen y la versión con la que se conforma el contenedor
+    
     restart: always                       -Establecimiento de las condiciones de reinicio
+    
     environment:                          -Es donde se pone el ambiente de desarrollo del programa
+    
       PHP_DISPLAY_ERRORS: 1               -Configuración en tiempo de ejecución manual de PHP
+      
     ports:                                -El apartado en el cual se tiene que poner el puerto de conexión
+    
       - 82:80                             -Es el puerto en el cual está la conexión al contenedor
+      
     volumes:                              -Se escoje el volumen para el ahorro en el tiempo de escritura
+    
       - ./appcode:/app                    -Es el comando que permite la conexión al IDE
 
 
