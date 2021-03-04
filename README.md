@@ -2,6 +2,8 @@
 
 Registration: 15197809
 
+docker compose is the service that handles the container
+
 docker compose from the web folder:
 
 version: '3.1'                          -Specify the version in which it will work
