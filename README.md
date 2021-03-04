@@ -52,13 +52,13 @@ environment:                            -It is where the program development env
 ports:                                  -The section in which you have to put the connection port
 
   - 3889: 3306                          -It is the port on which the connection to the database is located.
-  -
+  
 volumes:                                -Choose the volume to save on writing time
 
   - ./files:/var/lib/mysql/             -It is the directory of the database files
-  -
+  
   - ./logs:/var/log/mysql/              -They are the log files of problems in the connection to the database
-  -
+  
   - ./conf:/etc/mysql/conf.d/           -It is the file that is generated when the container starts
   
   
