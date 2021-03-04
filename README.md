@@ -1,78 +1,76 @@
-### Parcial 1 - Emilio Enrique Rivas Rubio ###
+### Part 1 - Emilio Enrique Rivas Rubio ###
 
-Matricula: 15197809
+Registration: 15197809
 
-docker compose de la carpeta web:
+docker compose from the web folder:
 
-version: '3.1'                            -Se especifíca la versión en la cual se trabajará
-                                          
-services:                                 -Se establecen los parametros del servicio al que se hara conexión
+version: '3.1'                          -Specify the version in which it will work
 
-  measurementapp:                         -Apartado donde se establece la imagen y sus condiciones
+services:                               -The parameters of the service to which connection will be made are established
+
+measurementapp:                         -Section where the image and its conditions are established
+
+image: webdevops / php-apache: 7.4      -It puts the image and the version with which the container conforms
+
+restart: always                         -Setting restart conditions
+
+environment:                            -It is where the program development environment is placed
+
+  PHP_DISPLAY_ERRORS: 1                 -Manual PHP runtime configuration
   
-    image: webdevops/php-apache:7.4       -Se pone la imagen y la versión con la que se conforma el contenedor
-    
-    restart: always                       -Establecimiento de las condiciones de reinicio
-    
-    environment:                          -Es donde se pone el ambiente de desarrollo del programa
-    
-      PHP_DISPLAY_ERRORS: 1               -Configuración en tiempo de ejecución manual de PHP
-      
-    ports:                                -El apartado en el cual se tiene que poner el puerto de conexión
-    
-      - 82:80                             -Es el puerto en el cual está la conexión al contenedor
-      
-    volumes:                              -Se escoje el volumen para el ahorro en el tiempo de escritura
-    
-      - ./appcode:/app                    -Es el comando que permite la conexión al IDE
+ports:                                  -The section in which you have to put the connection port
 
-
-
-docker compose de la carpeta web:
-
-version: '3.1'                            -Se especifíca la versión en la cual se trabajará
-
-services:                                 -Se establecen los parametros del servicio al que se hara conexión
-
-  mydatabase:                             -Se establece que se hara conexión a una base de datos
+  - 82:80                               -It is the port in which the connection to the container is
   
-    image: mariadb                        -Se pone la imagen que será el sistema de gestión de base de datos mariadb
-    
-    restart: always                       -Establecimiento de las condiciones de reinicio
-    
-    environment:                          -Es donde se pone el ambiente de desarrollo del programa
-    
-      MYSQL_ROOT_PASSWORD: mydbroot       -La contraseña del usuario de la base de datos.
-      
-      MYSQL_DATABASE: mydbclass           -Nombre de la base de datos a la que se hace conexión
-      
-      MYSQL_USER: mydbuser                -Nombre del usuario que hara la conexión de la base de datos
-      
-      MYSQL_PASSWORD: mydbpassword        -La contraseña de la base de datos a la que se hace conexión.
-      
-    ports:                                -El apartado en el cual se tiene que poner el puerto de conexión
-    
-      - 3889:3306                         -Es el puerto en el cual se encuentra la conexión a la base de datos.
-      - 
-    volumes:                              -Se escoje el volumen para el ahorro en el tiempo de escritura
-    
-      - ./files:/var/lib/mysql/           -Es el directorio de los archivos de la base de datos
-      - 
-      - ./logs:/var/log/mysql/            -Son los ficheros de registro de problemas en la conexión a la bd
-      - 
-      - ./conf:/etc/mysql/conf.d/         -Es el archivo que se genera cuando se inicia el contenedor
+volumes:                                -Choose the volume to save on writing time
+
+  - ./appcode:/app                      -It is the command that allows the connection to the IDE
 
 
-Descripción general del contenedor:
+docker compose from the web folder:
 
-Tiene la utilidad de implemetar aplicaciones muy rapidamente
+version: '3.1'                          -Specify the version in which it will work
 
-Contiene el lenguaje PHP
+services:                               -The parameters of the service to which connection will be made are established
 
-El servidor web que usa es Apache
+mydatabase:                             -It is established that a connection will be made to a database
 
-El gestor de base de datos que usa es mariaDB
+image: mariadb                          -The image that will be the mariadb database management system is placed
 
+restart: always                         -Setting restart conditions
+
+environment:                            -It is where the program development environment is placed
+
+  MYSQL_ROOT_PASSWORD: mydbroot         -The password of the database user.
+  
+  MYSQL_DATABASE: mydbclass             -Name of the database to which connection is made
+  
+  MYSQL_USER: mydbuser                  -Name of the user who will make the database connection
+  
+  MYSQL_PASSWORD: mydbpassword          -The password of the database to which the connection is made.
+  
+ports:                                  -The section in which you have to put the connection port
+
+  - 3889: 3306                          -It is the port on which the connection to the database is located.
+  
+volumes:                                -Choose the volume to save on writing time
+
+  - ./files:/var/lib/mysql/             -It is the directory of the database files
+  
+  - ./logs:/var/log/mysql/              -They are the log files of problems in the connection to the database
+  
+  - ./conf:/etc/mysql/conf.d/           -It is the file that is generated when the container starts
+  
+  
+Container overview:
+
+It has the utility of implementing applications very quickly
+
+Contains the PHP language
+
+The web server it uses is Apache
+
+The database manager you use is mariaDB
 
 
 
